@@ -292,3 +292,6 @@ $ git blame <filename> # See all the changes made to <filename> per author
 Git is a powerful tool and it takes a while to master it. Above instructions will get us started and points to the right direction. If we're unsure what a command does or which configuration properties it offers, it's always good to use `git <commandname> --help` to see instructions.
 
 It's also possible to use Git with GUI (Graphical User Interface) tools, such as [SourceTree](https://www.sourcetreeapp.com/) or [GitKraken](https://www.gitkraken.com/) but before jumping into these, let's make sure we know how to use Git with plain command-line.
+
+
+just changing it a bit
