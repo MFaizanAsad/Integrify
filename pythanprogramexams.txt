@@ -1,0 +1,82 @@
+# Python Program to calculate the square root
+
+# Note: change this value for a different result
+#num = 8 
+
+# uncomment to take the input from the user
+num = float(input('Enter a number: '))
+num_sqrt = num ** 0.5
+print('The square root of %0.3f is %0.3f'%(num ,num_sqrt))
+
+
+**********************************************************************************************************
+ # Program to generate a random number between 0 and 9
+
+# import the random module
+import random
+
+print(random.randint(0,29))
+ 
+**********************************************************************************************************
+# Program to check if a string
+#  is palindrome or not
+
+# change this value for a different output
+my_str= str(input("put a string you to test if its a palindrome"))
+# my_str = 'aIbohPhoBiA'
+
+# make it suitable for caseless comparison
+my_str = my_str.casefold()
+
+# reverse the string
+rev_str = reversed(my_str)
+
+# check if the string is equal to its reverse
+if list(my_str) == list(rev_str):
+   print("It is palindrome")
+else:
+   print("It is not palindrome")
+**********************************************************************************************************
+# num = float(input("Enter a number: "))
+# Python program to check if the input number is odd or even.
+# A number is even if division by 2 give a remainder of 0.
+# If remainder is 1, it is odd number.
+
+num = int(input("Enter a number: "))
+if (num % 2) == 0:
+   print("{} is Even".format(num))
+else:
+   print("{} is Odd".format(num))
+**********************************************************************************************************
+# Python program to check if the input year is a leap year or not
+
+# year = 2000
+
+# To get year (integer input) from the user
+year = int(input("Enter a year: "))
+
+if (year % 4) == 0:
+   if (year % 100) == 0:
+       if (year % 400) == 0:
+           print("{0} is a leap year".format(year))
+       else:
+           print("{0} is not a leap year".format(year))
+   else:
+       print("{0} is a leap year".format(year))
+else:
+   print("{0} is not a leap year".format(year))
+**********************************************************************************************************
+# program to find out the next Leap year giving the value of current year
+year = int(input("Enter current year to find out the next Leap year: "))
+if (year % 4) == 0:           # condition one it divided by 4
+    Leap_year = year+4
+    print("The next Leap year is {}".format(Leap_year))
+elif ((year+1)% 4)== 0:       # defining a condition if the year is divible by 4 with zero reminder 
+    Leap_year = year+1
+    print("The next Leap year is {}".format(Leap_year))
+elif ((year+2)% 4)== 0:         # defining a condition if the year is divible by 4 with zero reminder 
+    Leap_year = year+2
+    print("The next Leap year is {}".format(Leap_year))
+elif ((year+3)% 4)== 0:          # defining a condition if the year is divible by 4 with zero reminder 
+    Leap_year = year+3
+    print("The next Leap year is {}".format(Leap_year))
