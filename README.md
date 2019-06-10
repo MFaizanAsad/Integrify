@@ -1,2 +1,2 @@
 # Integrify
-#Repository created to test most of the git cammands
+#Repositor for integrify work
