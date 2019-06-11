@@ -5,7 +5,7 @@ tree: '00 - Prerequisites'
 module: module-0
 ---
 
-# 04. Git 1-on-1
+# 04. Git 1-on-1 
 
 ## TASK:
 
