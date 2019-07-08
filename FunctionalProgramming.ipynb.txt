@@ -1,0 +1,297 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "from itertools import groupby"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Task 1\n",
+    "Write functional programming code to apply a list of functions on a list of integers. Explain how it works as well and how it relates to functional programing.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 4, 9, 16, 25]\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = [1, 2, 3, 4, 5]\n",
+    "print(list(map(lambda num: num * num, x)))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[2, 4, 6, 8, 10]\n"
+     ]
+    }
+   ],
+   "source": [
+    "y = [1, 2, 3, 4, 5]\n",
+    "print(list(map(lambda num: num + num, y)))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In this code I have used both lambda and map function \n",
+    "Lambda function:\n",
+    "    Its a simple one line function and it does not use any def or return keywords.\n",
+    "Map function: \n",
+    "    It applies same function to each elements in the sequence and returns the modified list.\n",
+    "    \n",
+    "Code description:\n",
+    "    Here in the code above I need to find the square of the numbers given in the list so I have written a lambda function (num=num*num) in a map function so it iterates through all the values in the list and applies the function to all the numbers in list and give the sqare of all the numbers in list. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "24\n"
+     ]
+    }
+   ],
+   "source": [
+    "from functools import reduce\n",
+    "\n",
+    "print(reduce((lambda x, y: x * y),[1, 2, 3, 4]))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Reduce is a function that turns an iterable into one thing. Typically you perform a computation on a list to reduce it down to one number. Here in this program we want to find the product for two numbers but we have more than one number in the list, so how it works? It passes through the list first find the product of the first two elements then with the product value it calculates for the third element. Finally gives a single output"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[-5, -4, -3, -2, -1]\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = range(-5, 5)\n",
+    "print (list(filter(lambda num: num < 0, x)))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The filter function takes an iterable and filters out all the things you don’t want in that iterable.\n",
+    "Filter items put of a sequence and returns the filtered list.\n",
+    "In my code I have given the condition to find the numbers less than zero in the range -5 to +5, it performs the function and gives the output. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Task 2\n",
+    "Find the greatest common divisor of a list of numbers using Reduce. Explain how the code works as well. Explain how it works as well and how it relates to functional programing."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n"
+     ]
+    }
+   ],
+   "source": [
+    "from math import gcd\n",
+    "from functools import reduce\n",
+    "y = [12, 14, 16, 18]\n",
+    "print(reduce((lambda a,b:gcd(a,b)), y))  \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Reduce is a function that turns an iterable into one thing. Typically you perform a computation on a list to reduce it down to one number.\n",
+    "Code Description:\n",
+    "    Here in my code I am trying to find the GCD of series of numbers, so first two numbers are taken and calculated and then the GCD of those two numbers are taken to calculate the GCD of the next number and finally prints a single output"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Task 3\n",
+    "Write a function groupby_demonstrator that takes as a list of tuples as an input (arg data) as well as boolean argument (verify_sorted). If verify_sorted is true, the list is sorted by the first key (0-th tuple element), otherwise it is not sorted.\n",
+    "\n",
+    "The function should print out key-value pairs by groups (as output from Python groupby). The print statements between groups should have an empty line. Print statements inside-group should not have empty lines in between (just new lines between records).\n",
+    "\n",
+    "Add a decorator ‘ensure_sourted_grouper’ that overrides the grouping, by making sure that the list is sorted when an argument ‘verify_sorted’ = True is passed. Otherwise, “You didn’t enforce the order” is printed to the console."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[('car', 'bmw'), ('car', 'audi'), ('car', 'wolksvegan')]\n",
+      " \n",
+      "[('bike', 'hondacity'), ('bike', 'scooty'), ('bike', 'pulsar')]\n",
+      " \n",
+      "Is sorted\n"
+     ]
+    }
+   ],
+   "source": [
+    "from itertools import groupby\n",
+    "tuple_=[('car', 'bmw'),('car', 'audi'),('car', 'wolksvegan'),('bike', 'hondacity'), ('bike', 'scooty'), ('bike', 'pulsar')]    \n",
+    "\n",
+    "def ensure_sorted_grouper(groupby_demonstrator):\n",
+    "    def inner(tuple_, verify_sorted= [True, False]):\n",
+    "        groupby_demonstrator(tuple_, verify_sorted = [True, False])\n",
+    "        if verify_sorted is True:\n",
+    "            print(\"Is sorted\")\n",
+    "            \n",
+    "        else:\n",
+    "            print(\"You didn't enforce the order\")\n",
+    "    return inner\n",
+    "@ensure_sorted_grouper\n",
+    "def groupby_demonstrator(tuple_, verify_sorted = [True, False]):\n",
+    "    if verify_sorted is True:\n",
+    "        sorted(tuple_, key=lambda x:x[0])\n",
+    "        #print(data)\n",
+    "    for k, v in (groupby(tuple_, key=lambda  x: x[0])):\n",
+    "        print(list(v))\n",
+    "        print(\" \")\n",
+    "groupby_demonstrator(tuple_, True)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Task 4 (5p)\n",
+    "\n",
+    "In your own words, describe what is functional programming and how you can write functional programming code in Python (start here: https://docs.python.org/3/library/functional.html)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "1  Funtional Programming\n",
+    "Functional programing depends on functions and simpliying the code and instruction for users. The main difference between functional programing and other types (e.g. imperative and object oriented programing) is that the functions that are evaluated are the main way of transforming data.The lack of state allows a functional language is to be reasoned just by looking at a functional's input and output.Generally, instead of loops, recursions are used. The functional coding style treats everything like a math equation. The function package provides access to higher-order functions for data manipulation.However, you don't always user it to perform functional programming wtih python. e.g.import functoolsmy_list = [1, 2, 3, 4, 5]sum = functools.reduce(lambda x, y: x + y, my_list)print(sum)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.1"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": true,
+   "sideBar": true,
+   "skip_h1_title": false,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": false
+  },
+  "varInspector": {
+   "cols": {
+    "lenName": 16,
+    "lenType": 16,
+    "lenVar": 40
+   },
+   "kernels_config": {
+    "python": {
+     "delete_cmd_postfix": "",
+     "delete_cmd_prefix": "del ",
+     "library": "var_list.py",
+     "varRefreshCmd": "print(var_dic_list())"
+    },
+    "r": {
+     "delete_cmd_postfix": ") ",
+     "delete_cmd_prefix": "rm(",
+     "library": "var_list.r",
+     "varRefreshCmd": "cat(var_dic_list()) "
+    }
+   },
+   "types_to_exclude": [
+    "module",
+    "function",
+    "builtin_function_or_method",
+    "instance",
+    "_Feature"
+   ],
+   "window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
