@@ -1,0 +1,16 @@
+
+    1. Explain the difference in the normalization constant in variance/covariance formula
+
+ 
+
+-- The use of n-1 instead of n in the formula is to correct the bias in the number of observations in a sample. 
+ 
+-- However, the correction often increase the mean squared error in these estimations. 
+
+
+    2 : Explain how to compute the covariance matrix in your own words
+In Python the covariance matrix can be easily computed with a numpy function using "np.cov" .
+
+To understand the method, a function can be made in Python to calculate covariance matrix. The function can be made using formula: 
+
+***Cov(X, Y) = Σ ( Xi - X ) ( Yi - Y ) / N = Σ xiyi / N.***
