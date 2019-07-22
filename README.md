@@ -1,3 +1,3 @@
-***Public Repository for integrify work ***
-*** Integrify***
+***Public Repository for integrify work
+Integrify***
 
