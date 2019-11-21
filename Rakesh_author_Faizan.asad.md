@@ -51,6 +51,6 @@ Yes, during the assignment, I was reading some of the google pages for some help
 6. Try out the Javascript based web tool  https://learngitbranching.js.org/ to learn more about branching and write down your experience of using it - - does it help you to understand?
 
 Yes, it was  helpful to understand the commands but it will require some time to complete all the examples. 
-
+Assignment updated
 
 
